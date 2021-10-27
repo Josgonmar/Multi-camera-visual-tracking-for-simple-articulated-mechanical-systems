@@ -18,8 +18,11 @@ COSAS A TENER EN CUENTA:
 
 REQUISITOS:
 -El código está escrito íntegramente en lenguaje C/C++.
+
 -OpenCV 4.5.2
+
 -Eigen 3.3.9
+
 -Ceres 2.0
 
 # English:
