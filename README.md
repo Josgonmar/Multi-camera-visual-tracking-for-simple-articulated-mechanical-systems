@@ -17,6 +17,7 @@ COSAS A TENER EN CUENTA:
 -Si bien se puede restringir matematicamente a que la resolución siempre encuentre uno de los ejes de referencia como solidario a uno de los eslabones, no es posible hacerlo con los restantes, por lo que no existe una solución única al problema. Pero, normalmente el error de reproyección no suele ser superior a 3 píxeles.
 
 REQUISITOS:
+
 -El código está escrito íntegramente en lenguaje C/C++.
 
 -OpenCV 4.5.2
