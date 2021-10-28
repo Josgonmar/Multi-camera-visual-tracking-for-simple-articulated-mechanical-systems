@@ -4,6 +4,8 @@ Este proyecto tiene como objetivo asentar las bases para el desarrollo de un mé
 El algoritmo, desarrollado en lenguaje C++ para Visual Studio, permite mediante la aplicación de técnicas de visión por computador como la Triangulación y el problema de la Perspectiva de N Puntos (PnP) localizar una serie de marcadores pasivos en el espacio tridimensional. Una distribución de dichos marcadores en puntos clave, junto con un modelo cinemático conocido de la estructura, permite estimar todos los grados de libertad de la misma aplicando mínimos cuadrados sobre una función que relaciona la localización tridimensional de los marcadores con el modelo cinemático. Se muestran resultados experimentales para un conjunto de estructuras de prueba con diferente número de grados de libertad, que permiten evaluar la eficacia del método propuesto y sus posibles mejoras para trabajos futuros.
 Este problema tiene aplicación para el seguimiento del movimiendo de sistemas robóticos y vehículos articulados, así como para la captura de movimiento del cuerpo humano o partes de él.
 
+![alt text](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/2gdl-result.bmp?raw=true)
+
 ### FUNCIONAMIENTO
 La idea es capturar 3 imágenes desde puntos diferentes, de cierta articulación móvil cuya posición relativa a las cámaras es desconocida.
 Este brazo articulado debe poseer marcadores (en este caso, de tamaños diferenciables) en cada una de las uniones entre eslabones, asi como en la que sería la base del mismo.
