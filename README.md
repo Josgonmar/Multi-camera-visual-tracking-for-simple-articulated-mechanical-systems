@@ -1,4 +1,4 @@
-# Multi-camera-visual-tracking
+## Multi-camera-visual-tracking
 # Español:
 Este proyecto tiene como objetivo asentar las bases para el desarrollo de un método sencillo y de bajo coste, capaz de localizar tanto en posición como en orientación un sistema mecánico articulado mediante la aplicación de técnicas de localización 3D basadas en un sistema multicámara calibrado, que consiste en un cubículo de 3x3x3 metros y cuenta con cuatro cámaras infrarrojas, en posiciones enfrentadas dos a dos.
 El algoritmo, desarrollado en lenguaje C++ para Visual Studio, permite mediante la aplicación de técnicas de visión por computador como la Triangulación y el problema de la Perspectiva de N Puntos (PnP) localizar una serie de marcadores pasivos en el espacio tridimensional. Una distribución de dichos marcadores en puntos clave, junto con un modelo cinemático conocido de la estructura, permite estimar todos los grados de libertad de la misma aplicando mínimos cuadrados sobre una función que relaciona la localización tridimensional de los marcadores con el modelo cinemático. Se muestran resultados experimentales para un conjunto de estructuras de prueba con diferente número de grados de libertad, que permiten evaluar la eficacia del método propuesto y sus posibles mejoras para trabajos futuros.
@@ -11,20 +11,17 @@ De esta forma, se detectan los centros de los marcadores en cada una de las tres
 La imágen resultante muestra el valor de los ángulos de alabeo, cabeceo y guiñada, así como de los grados de libertad, ademas de una representación gráfica de como quedarían dispuestos los ejes de referencia del brazo articulado.
 
 COSAS A TENER EN CUENTA:
--Por motivos ajenos, no fue posible trabajar con las 4 cámaras a la vez, por lo que está pensado para funcionar con solo 3 de ellas. Más camaras incurre en, obviamente, una mejora en la presición de las estimaciones.
--La función que opera la triangulación contenida en la librería OpenCV solo es capaz de trabajar con 2 cámaras a la vez, por lo que habrá que promediar los resultados entre todas.
--Los progrmas están pensados para funcionar con una configuración muy concreta de los sistemas articulados, de 2, 3 y 4 grados de libertad, con movimientos en 3 dimensiones. Se supone que tanto las dimensiones como las ecuaciones cinemáticas son conocidas. No obstante, el sistema esta pensado para fucionar con cualquier configuración, siempre y cuando se modifiquen las partes correspondientes.
--Si bien se puede restringir matematicamente a que la resolución siempre encuentre uno de los ejes de referencia como solidario a uno de los eslabones, no es posible hacerlo con los restantes, por lo que no existe una solución única al problema. Pero, normalmente el error de reproyección no suele ser superior a 3 píxeles.
+- Por motivos ajenos, no fue posible trabajar con las 4 cámaras a la vez, por lo que está pensado para funcionar con solo 3 de ellas. Más camaras incurre en, obviamente, una mejora en la presición de las estimaciones.
+- La función que opera la triangulación contenida en la librería OpenCV solo es capaz de trabajar con 2 cámaras a la vez, por lo que habrá que promediar los resultados entre todas.
+- Los progrmas están pensados para funcionar con una configuración muy concreta de los sistemas articulados, de 2, 3 y 4 grados de libertad, con movimientos en 3 dimensiones. Se supone que tanto las dimensiones como las ecuaciones cinemáticas son conocidas. No obstante, el sistema esta pensado para fucionar con cualquier configuración, siempre y cuando se modifiquen las partes correspondientes.
+- Si bien se puede restringir matematicamente a que la resolución siempre encuentre uno de los ejes de referencia como solidario a uno de los eslabones, no es posible hacerlo con los restantes, por lo que no existe una solución única al problema. Pero, normalmente el error de reproyección no suele ser superior a 3 píxeles.
 
 REQUISITOS:
 
--El código está escrito íntegramente en lenguaje C/C++.
-
--OpenCV 4.5.2
-
--Eigen 3.3.9
-
--Ceres 2.0
+- El código está escrito íntegramente en lenguaje C/C++.
+- OpenCV 4.5.2
+- Eigen 3.3.9
+- Ceres 2.0
 
 # English:
 This project aims to settle the foundations for the development of a simple and low cost method, capable of locating both, position and orientation, of an articulated mechanical system through the application of 3D localization techniques based on a calibrated multi camera system, consisting of a cubicle of 3x3x3 meters and four infrared cameras, placed in opposing positions two by two.
