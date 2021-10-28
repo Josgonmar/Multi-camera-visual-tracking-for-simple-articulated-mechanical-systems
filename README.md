@@ -19,6 +19,8 @@ La imágen resultante muestra el valor de los ángulos de alabeo, cabeceo y gui�
 - Los progrmas están pensados para funcionar con una configuración muy concreta de los sistemas articulados, de 2, 3 y 4 grados de libertad, con movimientos en 3 dimensiones. Se supone que tanto las dimensiones como las ecuaciones cinemáticas son conocidas. No obstante, el sistema esta pensado para fucionar con cualquier configuración, siempre y cuando se modifiquen las partes correspondientes.
 - Si bien se puede restringir matematicamente a que la resolución siempre encuentre uno de los ejes de referencia como solidario a uno de los eslabones, no es posible hacerlo con los restantes, por lo que no existe una solución única al problema. Pero, normalmente el error de reproyección no suele ser superior a 3 píxeles.
 ![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/2gdlDH.png?raw=true "Ejemplo de brazo articulado de 2gdl")
+### SCRIPTS:
+Existen dos versiones del mismo programa, la base, en la que las dimensiones del brazo articulado se suponen conocida y son constantes en el programa, y 'xxx_LEST.cpp', en la que las dimensiones anteriores no son un dato, sino que en cada iteración se van calculando a medida que se van triangulando las coordenadas de los distintos marcadores.
 ### REQUISITOS
 - El código está escrito íntegramente en lenguaje C/C++.
 - OpenCV 4.5.2
@@ -43,6 +45,8 @@ The resulting images show the value of all of these variables, as well as a grap
 - The OpenCV function that calculates the triangulation, can only work with 1 pair of cameras at a time, so its necessary to average the results.
 - These scripts are ready to work with systems of a very particualr configuration, of 2, 3 and 4 degrees of freedom. But it's meant to be a generalized proceedure.
 - Even though you can, using the equations, force one of the axis to always be contained in the first arm link (in this case, the OZ axis), it cannot be done with the rest of them. As a result, there is not a sigle possible solution to the problem. To solve this, we would need a way to force the position of these axises, so they always appear in the same order.
+### SCRIPTS:
+There are two versions of the same program. The first one is the base one, in which the dimension of the arm links are known and measured in real life. On the other hand, the 'xxx_LEST.cpp' version of the program estimates these dimensions after triangulating the coordinates of the markers.
 ### DEPENDENCIES
 - The code is completely written in C/C++.
 - OpenCV 4.5.2
