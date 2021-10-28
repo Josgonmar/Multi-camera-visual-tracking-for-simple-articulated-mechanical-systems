@@ -10,9 +10,7 @@ Este brazo articulado debe poseer marcadores (en este caso, de tamaños diferenc
 De esta forma, se detectan los centros de los marcadores en cada una de las tres imágenes aplicando una serie de operaciones morfológicas simples, y mediante triangulación se obtiene la posición global de cada uno de estos marcadores, respecto de una de las cámaras que se eligirá como referencia. Por supuesto, se entiende que dicho sistema de cámaras se encuentra completamente calibrado. Con las coordenadas trianguladas, se ha de resolver mediante mínimos cuadrados, una ecuación que relaciona dichas coordenadas con las coordenadas relativas de cada marcador, vistas desde la base del brazo. Esta ecuación, o sistema de ecuaciones, no es más que una transformación homogénea de coordenadas, por lo que obtenemos un total de 3 ecuaciones por cada marcador, y (3+X) incógnitas, donde X corresponde con el número de grados de libertad del brazo articulado, quedando de la sigueinte manera: (Xc,Yc,Zc)=F(R,P,Y,Qn), teniendo en cuenta que también nos interesa conocer los angulos de giro a aplicar para obtener tanto la posición como la orientación relativa respecto de la cámara central.
 La imágen resultante muestra el valor de los ángulos de alabeo, cabeceo y guiñada, así como de los grados de libertad, ademas de una representación gráfica de como quedarían dispuestos los ejes de referencia del brazo articulado.
 ![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/Matrix_trans.png?raw=true "Transformacion Homogenea")
-
 ![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/Trans_matrix.png?raw=true "Matriz de transformacion")
-
 ![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/Function.png?raw=true "Sistema a resolver")
 ### COSAS A TENER EN CUENTA
 - Por motivos ajenos, no fue posible trabajar con las 4 cámaras a la vez, por lo que está pensado para funcionar con solo 3 de ellas. Más camaras incurre en, obviamente, una mejora en la presición de las estimaciones.
@@ -35,14 +33,10 @@ The idea its to capture three images of a certain articulated mechanical system,
 This articulated arm is supposed to have several markers (and to be able to differentiate them) in order to detect with the cameras, through computer vision techniques, points of interests of it, such as joints and the base. This way, after detecting each marker and saving its coordinates in pixels of every image, triangulation its done so as to get the coordinates in the 3D world, seen from one of the cameras we will tag as the main one. Of course, the cameras were previously calibrated.
 With these coordinates, through least squares optimization, we will resolve an equation system that will relate the triangulated coordinates, with the relative coordinates seen from the 'perspective' of our articulated arm. This ecuations are taken from a homogeneus coordinate transformation, from the camere to the base of the arm. So, for every marker, we get 3 equations, that added to the 3+X unknown variables (X degrees of freedom), let us resolve the Yaw, Pitch and Roll relative angles and every degree of freedom (for instance, the degrees a rotative joint is opened) (Xc,Yc,Zc)=F(R,P,Y,Qn).
 The resulting images show the value of all of these variables, as well as a graphic representation of how the reference axis of our articulated mechanical system would be seen from the main camera.
-![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/Matrix_trans.png?raw=true "Homogen Transformation")
-![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/Trans_matrix.png?raw=true "Transformation matrix")
-![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/Function.png?raw=true "System to solve")
 ### THINGS TO KEEP IN MIND
 - Though the place of work had 4 cameras, it was only possible to work with three of them. More cameras means higher precision.
 - The OpenCV function that calculates the triangulation, can only work with 1 pair of cameras at a time, so its necessary to average the results.
 - These scripts are ready to work with systems of a very particualr configuration, of 2, 3 and 4 degrees of freedom. But it's meant to be a generalized proceedure.
-![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/2gdlDH.png?raw=true "Example of the simplest articulated arm used")
 ### DEPENDENCIES
 - The code is completely written in C/C++.
 - OpenCV 4.5.2
