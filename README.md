@@ -40,7 +40,7 @@ The resulting images show the value of all of these variables, as well as a grap
 - Though the place of work had 4 cameras, it was only possible to work with three of them. More cameras means higher precision.
 - The OpenCV function that calculates the triangulation, can only work with 1 pair of cameras at a time, so its necessary to average the results.
 - These scripts are ready to work with systems of a very particualr configuration, of 2, 3 and 4 degrees of freedom. But it's meant to be a generalized proceedure.
-- Though you can, using the equations, to force one of the axis to always be contained in the first arm link, it cannot be done with the rest of them. As a result, there is not a sigle possible solution to the problem. To solve this, we would need a way to force the position of these axises, so they always appear in the same order.
+- Even though you can, using the equations, force one of the axis to always be contained in the first arm link (in this case, the OZ axis), it cannot be done with the rest of them. As a result, there is not a sigle possible solution to the problem. To solve this, we would need a way to force the position of these axises, so they always appear in the same order.
 ### DEPENDENCIES
 - The code is completely written in C/C++.
 - OpenCV 4.5.2
