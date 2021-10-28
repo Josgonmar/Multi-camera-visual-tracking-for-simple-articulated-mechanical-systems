@@ -27,7 +27,7 @@ La imágen resultante muestra el valor de los ángulos de alabeo, cabeceo y gui�
 This project aims to settle the foundations for the development of a simple and low cost method, capable of locating both, position and orientation, of an articulated mechanical system through the application of 3D localization techniques based on a calibrated multi camera system, consisting of a cubicle of 3x3x3 meters and four infrared cameras, placed in opposing positions two by two.
 The algorithm, developed in C++ language for Visual Studio, allows by applying some computer vision techniques such as Triangulation and the Perspective N Point (PnP) problem to locate a series of passive markers in a three dimensional space. A distribution of these markers at key points, together with a known kinematic model of the structure, enables to estimate all the degrees of freedom by applying least squares on a function that relates the three dimensional location of the markers with the kinematic model. Experimental results are shown for a set of test structures with different number of degrees of freedom, which allow to assess the effectiveness of the proposed method and its possible improvements for future work.
 This problem has application for the tracking of the movement of robotic systems and artificial vehicles, as well as for the capture of movement of the human body or parts of it.
-![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/3gdl-7.bmp?raw=true "Example")
+![](https://github.com/Josgonmar/Multi-camera-visual-tracking/blob/main/Readme_files/3gdl-13.bmp?raw=true "Example")
 ### HOW IT WORKS
 The idea its to capture three images of a certain articulated mechanical system, whose position and orientation from the cameras is unknown.
 This articulated arm is supposed to have several markers (and to be able to differentiate them) in order to detect with the cameras, through computer vision techniques, points of interests of it, such as joints and the base. This way, after detecting each marker and saving its coordinates in pixels of every image, triangulation its done so as to get the coordinates in the 3D world, seen from one of the cameras we will tag as the main one. Of course, the cameras were previously calibrated.
@@ -40,6 +40,7 @@ The resulting images show the value of all of these variables, as well as a grap
 - Though the place of work had 4 cameras, it was only possible to work with three of them. More cameras means higher precision.
 - The OpenCV function that calculates the triangulation, can only work with 1 pair of cameras at a time, so its necessary to average the results.
 - These scripts are ready to work with systems of a very particualr configuration, of 2, 3 and 4 degrees of freedom. But it's meant to be a generalized proceedure.
+- Though you can, using the equations, to force one of the axis to always be contained in the first arm link, it cannot be done with the rest of them. As a result, there is not a sigle possible solution to the problem. To solve this, we would need a way to force the position of these axises, so they always appear in the same order.
 ### DEPENDENCIES
 - The code is completely written in C/C++.
 - OpenCV 4.5.2
